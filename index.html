@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sudoku</h1>
+      <div class="stopwatch">
+        <button class="smallButton">
+          <img src="back.svg" alt="back button" />
+        </button>
+        <button class="smallButton">
+          <img src="hint.svg" alt="hint button" />
+        </button>
+        <div id="time">
+          <h2 class="minutes">00</h2>
+          <p>min</p>
+          <h2 class="seconds">00</h2>
+          <p>sec</p>
+        </div>
+        <button id="play-button" class="active smallButton">
+          <img src="play.svg" alt="play button" />
+        </button>
+        <button id="pause-button" class="hide smallButton">
+          <img src="pause.svg" alt="pause button" />
+        </button>
+        <button id="reset-button" class="smallButton">
+          <img src="startfresh.svg" alt="reset button" />
+        </button>
+      </div>
+      <div id="gameboard"></div>
+      <div class="actionboard">
+        <div class="numbers"></div>
+        <div class="action-buttons">
+          <button id="solve-button">Erase</button>
+          <button>Drafts?</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="stopwatch.js"></script>
+    <script src="board.js"></script>
+  </body>
+</html>
