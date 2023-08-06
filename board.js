@@ -29,14 +29,12 @@ let solution = [
 for (let r = 0; r < squares; r++) {
   for (let c = 0; c < squares; c++) {
     const inputElement = document.createElement("input");
-    inputElement.setAttribute("type", "number");
-    inputElement.setAttribute("min", "1");
-    inputElement.setAttribute("max", "9");
-    //inputElement.setAttribute("maxlength", "1");
-    inputElement.id = r.toString() + " - " + c.toString();
+    // inputElement.setAttribute("type", "text");
+    // inputElement.setAttribute("maxlength", "1");
+    // inputElement.id = r.toString() + " - " + c.toString();
     if (board[r][c] != "-") {
       inputElement.value = board[r][c];
-      inputElement.classList = "board-start";
+      inputElement.classList.add("board-start");
     }
     if (r == 2 || r == 5) {
       inputElement.classList.add("horizontal-line");
@@ -44,8 +42,8 @@ for (let r = 0; r < squares; r++) {
     if (c == 2 || c == 5) {
       inputElement.classList.add("vertical-line");
     }
-    //TO DO: Kästchen bunt statt Linien;
     inputElement.addEventListener("click", addNumber);
+    // inputElement.addEventListener("onkeydown", saveMemento);
     gameBoard.appendChild(inputElement);
   }
 }
