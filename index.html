@@ -10,12 +10,11 @@
   <body>
     <div class="container">
       <h1>Sudoku</h1>
-
       <div class="stopwatch">
         <button onclick="undo()" class="undo-button small-button">
           <img src="back.svg" alt="back button" />
         </button>
-        <button class="small-button">
+        <button class="hint-button small-button">
           <img src="hint.svg" alt="hint button" />
         </button>
         <div id="time">
@@ -38,7 +37,7 @@
       <div class="actionboard">
         <div id="digits"></div>
         <div class="action-buttons">
-          <button id="solve-button">Erase</button>
+          <button class="erase-button">Erase</button>
           <button>Drafts?</button>
         </div>
       </div>
