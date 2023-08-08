@@ -10,11 +10,12 @@
   <body>
     <div class="container">
       <h1>Sudoku</h1>
+
       <div class="stopwatch">
-        <button class="backButton smallButton">
+        <button onclick="undo()" class="undo-button small-button">
           <img src="back.svg" alt="back button" />
         </button>
-        <button class="smallButton">
+        <button class="small-button">
           <img src="hint.svg" alt="hint button" />
         </button>
         <div id="time">
@@ -23,13 +24,13 @@
           <h2 class="seconds">00</h2>
           <p>sec</p>
         </div>
-        <button id="play-button" class="active smallButton">
+        <button id="play-button" class="active small-button">
           <img src="play.svg" alt="play button" />
         </button>
-        <button id="pause-button" class="hide smallButton">
+        <button id="pause-button" class="hide small-button">
           <img src="pause.svg" alt="pause button" />
         </button>
-        <button id="reset-button" class="smallButton">
+        <button id="reset-button" class="small-button">
           <img src="startfresh.svg" alt="reset button" />
         </button>
       </div>
@@ -43,7 +44,7 @@
       </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="step-back.js"></script>
     <script src="stopwatch.js"></script>
     <script src="board.js"></script>
   </body>
