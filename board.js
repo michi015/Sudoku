@@ -1,8 +1,8 @@
 let numSelected = null;
 //var tileSelected = null;
 
-let errors = 0;
 let board = [
+
   "--74916-5",
   "2---6-3-9",
   "-----7-1-",
@@ -58,6 +58,7 @@ function setGame() {
         tile.classList.add("vertical-line");
       }
       tile.addEventListener("click", selectTile);
+      tile.addEventListener("onclickdown", saveMemento);
       tile.classList.add("tile");
       document.getElementById("board").append(tile);
     }
@@ -91,7 +92,10 @@ function selectTile() {
     //   return;
     // }
 
-    if (this.classList.contains("tile-start")) {
+    if (
+      this.classList.contains("tile-start") ||
+      this.classList.contains("tile-right")
+    ) {
       return;
     }
 
