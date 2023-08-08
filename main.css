@@ -82,27 +82,31 @@ img {
   display: none;
 }
 
-#gameboard {
+#board {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(9, 1fr);
-  align-items: center;
-  justify-items: center;
 
+  justify-content: center;
   background-color: rgb(255, 255, 255);
-  border: solid 1px #000000;
-  border-radius: 20px;
+
   color: #242424;
+  height: 630px;
+  width: 630px;
 }
 
 @media only screen and (max-width: 600px) {
-  .gameboard {
+  #board {
     height: 500px;
   }
 }
 
-.board-start {
+.tile-start {
   background-color: #fdeef7;
+}
+
+.tile-right {
+  background-color: #cfd0f2;
 }
 
 .horizontal-line {
@@ -113,7 +117,10 @@ img {
   border-right: 1px solid #cfd0f2;
 }
 
-input {
+.tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 32px;
   height: 70px;
   width: 70px;
@@ -129,7 +136,7 @@ input {
   margin: 0 24px;
 }
 
-.numbers {
+#digits {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,7 +160,8 @@ input {
 }
 
 .number-selected {
-  background-color: green;
+  background-color: #cfd0f2;
+  color: #9295e1;
 }
 
 @media only screen and (max-width: 600px) {
