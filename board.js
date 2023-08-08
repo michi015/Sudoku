@@ -1,9 +1,8 @@
-var numSelected = null;
+let numSelected = null;
 //var tileSelected = null;
 
-var errors = 0;
-
-var board = [
+let errors = 0;
+let board = [
   "--74916-5",
   "2---6-3-9",
   "-----7-1-",
@@ -15,7 +14,7 @@ var board = [
   "81--45---",
 ];
 
-var solution = [
+let solution = [
   "387491625",
   "241568379",
   "569327418",
@@ -64,6 +63,19 @@ function setGame() {
     }
   }
 }
+
+//Erase
+let eraseButton = document.querySelector(".erase-button");
+eraseButton.addEventListener("click", eraseAll);
+
+function eraseAll() {
+  location.reload();
+}
+
+//Hint
+
+let hintButton = document.querySelector(".hint-button");
+hintButton.addEventListener("click", giveHint);
 
 function selectNumber() {
   if (numSelected != null) {
