@@ -1,8 +1,4 @@
-let numSelected = null;
-//var tileSelected = null;
-
 let board = [
-
   "--74916-5",
   "2---6-3-9",
   "-----7-1-",
@@ -33,7 +29,6 @@ window.onload = function () {
 function setGame() {
   // Digits 1-9
   for (let i = 1; i <= 9; i++) {
-    //<div id="1" class="number">1</div>
     let number = document.createElement("div");
     number.id = i;
     number.innerText = i;
@@ -58,25 +53,14 @@ function setGame() {
         tile.classList.add("vertical-line");
       }
       tile.addEventListener("click", selectTile);
-      tile.addEventListener("onclickdown", saveMemento);
+
       tile.classList.add("tile");
       document.getElementById("board").append(tile);
     }
   }
 }
 
-//Erase
-let eraseButton = document.querySelector(".erase-button");
-eraseButton.addEventListener("click", eraseAll);
-
-function eraseAll() {
-  location.reload();
-}
-
-//Hint
-
-let hintButton = document.querySelector(".hint-button");
-hintButton.addEventListener("click", giveHint);
+let numSelected = null;
 
 function selectNumber() {
   if (numSelected != null) {
@@ -88,10 +72,6 @@ function selectNumber() {
 
 function selectTile() {
   if (numSelected) {
-    // if (this.innerText != "") {
-    //   return;
-    // }
-
     if (
       this.classList.contains("tile-start") ||
       this.classList.contains("tile-right")
@@ -108,6 +88,37 @@ function selectTile() {
       this.classList.add("tile-right");
     } else {
       this.innerText = numSelected.id;
+      this.classList.add("tile-wrong");
     }
   }
+}
+
+//Undo last step
+// const undoButton = document.querySelector(".undo-button");
+// undoButton.addEventListener("click", undo);
+// function undo() {
+//   console.log("test");
+// }
+
+//Hint
+let hintButton = document.querySelector(".hint-button");
+hintButton.addEventListener("click", giveHint);
+
+function giveHint() {
+  console.log("test");
+}
+
+//Erase
+let eraseButton = document.querySelector(".erase-button");
+eraseButton.addEventListener("click", eraseAll);
+
+function eraseAll() {
+  let filledTiles = document.querySelectorAll(".tile-wrong, .tile-right");
+  console.log(filledTiles);
+  filledTiles.forEach((item) => {
+    item.innerText = "";
+    item.classList.remove("tile-wrong");
+    item.classList.remove("tile-right");
+  });
+  // location.reload();
 }

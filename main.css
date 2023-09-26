@@ -116,6 +116,10 @@ img {
   background-color: #cfd0f2;
 }
 
+.tile-wrong {
+  background-color: #fb7e95;
+}
+
 .horizontal-line {
   border-bottom: 1px solid #cfd0f2;
   /* background-color: #f8c5e4; */
