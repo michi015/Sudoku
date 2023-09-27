@@ -1,3 +1,5 @@
+let numSelected = null;
+
 let board = [
   "--74916-5",
   "2---6-3-9",
@@ -46,27 +48,29 @@ function setGame() {
         tile.innerText = board[r][c];
         tile.classList.add("tile-start");
       }
+      //linien in der mitte
       if (r == 2 || r == 5) {
         tile.classList.add("horizontal-line");
       }
       if (c == 2 || c == 5) {
         tile.classList.add("vertical-line");
       }
-      tile.addEventListener("click", selectTile);
 
+      tile.addEventListener("click", selectTile);
       tile.classList.add("tile");
       document.getElementById("board").append(tile);
     }
   }
 }
 
-let numSelected = null;
-
+//nimmt die Nummer der Zahlen unten
 function selectNumber() {
+  //toggle selected
+
   if (numSelected != null) {
     numSelected.classList.remove("number-selected");
   }
-  numSelected = this;
+  numSelected = this; //this referse to the div itself!?
   numSelected.classList.add("number-selected");
 }
 
@@ -78,34 +82,38 @@ function selectTile() {
     ) {
       return;
     }
+    this.innerText = numSelected.id;
 
-    let coords = this.id.split("-"); //"0-0" "0-1" > ["0", "0"]
-    let r = parseInt(coords[0]);
+    let coords = this.id.split("-"); //"0-0" "0-1" wird ["0", "0"]
+    console.log(coords);
+    console.log(this.id);
+    let r = parseInt(coords[0]); //gibt strings - parse int macht number
     let c = parseInt(coords[1]);
 
     if (solution[r][c] == numSelected.id) {
       this.innerText = numSelected.id;
-      this.classList.add("tile-right");
+      this.classList.add("tile-start");
+      this.classList.remove("tile-wrong");
     } else {
       this.innerText = numSelected.id;
       this.classList.add("tile-wrong");
     }
+    // ????
+    if (board[r][c] === solution[r][c]) {
+      alert("you won");
+    }
   }
 }
-
-//Undo last step
-// const undoButton = document.querySelector(".undo-button");
-// undoButton.addEventListener("click", undo);
-// function undo() {
-//   console.log("test");
-// }
 
 //Hint
 let hintButton = document.querySelector(".hint-button");
 hintButton.addEventListener("click", giveHint);
 
 function giveHint() {
-  console.log("test");
+  window.open(
+    "https://sudoku.com/how-to-play/sudoku-rules-for-complete-beginners/",
+    "_blank"
+  );
 }
 
 //Erase
@@ -121,4 +129,16 @@ function eraseAll() {
     item.classList.remove("tile-right");
   });
   // location.reload();
+}
+
+//solve
+let solveButton = document.querySelector(".solve-button");
+solveButton.addEventListener("click", solveGame);
+
+function solveGame() {
+  let tile = document.querySelectorAll(".tile");
+
+  for (let element of tile) {
+    tile.style.background = "";
+  }
 }

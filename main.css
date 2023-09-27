@@ -18,9 +18,8 @@ input {
 }
 
 .container {
-  max-width: 600px;
-  max-height: 100vh;
-  padding: 48px 48px;
+  padding: 48px 0px;
+  max-width: 630px;
 }
 
 h1 {
@@ -46,7 +45,6 @@ p {
   display: flex;
   align-items: center;
   max-height: 80px;
-  justify-content: space-evenly;
 }
 
 #time {
@@ -113,19 +111,18 @@ img {
 }
 
 .tile-right {
-  background-color: #cfd0f2;
+  background-color: #fdeef7;
 }
 
 .tile-wrong {
-  background-color: #fb7e95;
+  color: #fb7e95;
 }
 
 .horizontal-line {
-  border-bottom: 1px solid #cfd0f2;
-  /* background-color: #f8c5e4; */
+  border-bottom: 3px solid #cfd0f2;
 }
 .vertical-line {
-  border-right: 1px solid #cfd0f2;
+  border-right: 3px solid #cfd0f2;
 }
 
 .tile {
@@ -143,13 +140,12 @@ img {
 .actionboard {
   display: flex;
   align-items: center;
-  justify-content: center;
+
   margin: 0 24px;
 }
 
 #digits {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   padding: 32px 48px;

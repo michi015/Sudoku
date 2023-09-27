@@ -55,4 +55,5 @@ function reset() {
   counter = -1;
   minutes.innerText = `00`;
   seconds.innerText = `00`;
+  location.reload();
 }
