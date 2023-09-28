@@ -1,4 +1,5 @@
 let numSelected = null;
+let draftModeEnabled = false;
 
 let board = [
   "--74916-5",
@@ -48,6 +49,8 @@ function setGame() {
         tile.innerText = board[r][c];
         tile.classList.add("tile-start");
       }
+      tile.addEventListener("click", checkDraftMode);
+
       //linien in der mitte
       if (r == 2 || r == 5) {
         tile.classList.add("horizontal-line");
@@ -55,11 +58,49 @@ function setGame() {
       if (c == 2 || c == 5) {
         tile.classList.add("vertical-line");
       }
-
-      tile.addEventListener("click", selectTile);
       tile.classList.add("tile");
       document.getElementById("board").append(tile);
     }
+  }
+}
+
+//event listener
+function checkDraftMode() {
+  let tile = document.querySelectorAll(".tile");
+  console.log(tile);
+  tile.forEach((tile) => {
+    if (!draftModeEnabled) {
+      tile.addEventListener("click", selectTile);
+      tile.removeEventListener("click", selectTileDraft);
+      console.log("not in draft mode");
+    } else {
+      tile.addEventListener("click", selectTileDraft);
+      tile.removeEventListener("click", selectTile);
+      console.log("in draft mode");
+    }
+  });
+}
+
+//draft Mode
+let draftButton = document.querySelector(".draft-button");
+draftButton.addEventListener("click", draftMode);
+
+function draftMode() {
+  if (draftModeEnabled) {
+    draftModeEnabled = false;
+    draftButton.style.backgroundColor = "white";
+    console.log("not enabled");
+  } else {
+    draftModeEnabled = true;
+    draftButton.style.backgroundColor = "darkgray";
+    console.log("enabled");
+  }
+}
+
+function selectTileDraft() {
+  if (numSelected) {
+    this.innerText = numSelected.id;
+    this.classList.add("draft-mode");
   }
 }
 
@@ -94,9 +135,11 @@ function selectTile() {
       this.innerText = numSelected.id;
       this.classList.add("tile-start");
       this.classList.remove("tile-wrong");
+      this.classList.remove("draft-mode");
     } else {
       this.innerText = numSelected.id;
       this.classList.add("tile-wrong");
+      this.classList.remove("draft-mode");
     }
     // ????
     if (board[r][c] === solution[r][c]) {
@@ -116,13 +159,12 @@ function solveGame() {
   for (let x = 0; x < solution.length; x++) {
     for (let y = 0; y < solution.length; y++) {
       solutionNumber = solution[x][y];
-      console.log(typeof solutionNumber);
+      console.log(solutionNumber);
     }
   }
 
   for (let i = 0; i < tile.length; i++) {
     tile[i].classList.add("test");
-
     tile[i].innerText = solutionNumber[3];
   }
 }
@@ -152,23 +194,3 @@ function eraseAll() {
   });
   // location.reload();
 }
-
-//draft Mode
-
-// let draftButton = document.querySelector(".draft-button");
-// draftButton.addEventListener("click", draftMode);
-
-// function draftMode() {
-//   let board = (document.querySelector("body").style.backgroundColor = "pink");
-//   console.log("das ist ein test");
-
-//   let tile = document.querySelectorAll(".tile");
-//   tile.addEventListener("click", selectTileAgain);
-
-//   function selectTileAgain() {
-//     if (numSelected) {
-//       this.innerText = numSelected.id;
-//       this.style.color = "green";
-//     }
-//   }
-// }

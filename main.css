@@ -137,10 +137,17 @@ img {
   border: 1px #fdeef7 solid;
 }
 
+.draft-mode {
+  font-size: 14px;
+  color: gray;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 8px;
+}
+
 .actionboard {
   display: flex;
   align-items: center;
-
   margin: 0 24px;
 }
 
