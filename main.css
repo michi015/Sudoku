@@ -10,12 +10,12 @@ body {
   font-weight: 200;
 }
 
-input {
+/* input {
   height: 50px;
   width: 200px;
   margin-bottom: 50px;
   font-size: 32px;
-}
+} */
 
 .container {
   padding: 48px 0px;
@@ -201,4 +201,8 @@ button:active {
 button:hover {
   background-color: #ef52b0;
   color: white;
+}
+
+.test {
+  background-color: red;
 }

@@ -105,6 +105,28 @@ function selectTile() {
   }
 }
 
+//solve
+let solveButton = document.querySelector(".solve-button");
+solveButton.addEventListener("click", solveGame);
+
+function solveGame() {
+  let tile = document.querySelectorAll(".tile");
+  let solutionNumber = [];
+
+  for (let x = 0; x < solution.length; x++) {
+    for (let y = 0; y < solution.length; y++) {
+      solutionNumber = solution[x][y];
+      console.log(typeof solutionNumber);
+    }
+  }
+
+  for (let i = 0; i < tile.length; i++) {
+    tile[i].classList.add("test");
+
+    tile[i].innerText = solutionNumber[3];
+  }
+}
+
 //Hint
 let hintButton = document.querySelector(".hint-button");
 hintButton.addEventListener("click", giveHint);
@@ -131,14 +153,22 @@ function eraseAll() {
   // location.reload();
 }
 
-//solve
-let solveButton = document.querySelector(".solve-button");
-solveButton.addEventListener("click", solveGame);
+//draft Mode
 
-function solveGame() {
-  let tile = document.querySelectorAll(".tile");
+// let draftButton = document.querySelector(".draft-button");
+// draftButton.addEventListener("click", draftMode);
 
-  for (let element of tile) {
-    tile.style.background = "";
-  }
-}
+// function draftMode() {
+//   let board = (document.querySelector("body").style.backgroundColor = "pink");
+//   console.log("das ist ein test");
+
+//   let tile = document.querySelectorAll(".tile");
+//   tile.addEventListener("click", selectTileAgain);
+
+//   function selectTileAgain() {
+//     if (numSelected) {
+//       this.innerText = numSelected.id;
+//       this.style.color = "green";
+//     }
+//   }
+// }
