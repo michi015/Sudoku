@@ -158,14 +158,15 @@ function solveGame() {
 
   for (let x = 0; x < solution.length; x++) {
     for (let y = 0; y < solution.length; y++) {
-      solutionNumber = solution[x][y];
-      console.log(solutionNumber);
+      solutionNumber.push(solution[x][y]);
     }
   }
+  // console.log(solutionNumber);
 
   for (let i = 0; i < tile.length; i++) {
-    tile[i].classList.add("test");
-    tile[i].innerText = solutionNumber[3];
+    tile[i].classList.remove("tile-wrong");
+    tile[i].classList.remove("draft-mode");
+    tile[i].innerText = solutionNumber[i];
   }
 }
 
