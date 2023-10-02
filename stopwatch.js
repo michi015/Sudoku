@@ -2,7 +2,7 @@
 
 const pauseButton = document.querySelector("#pause-button");
 const startButton = document.querySelector("#play-button");
-const resetButton = document.querySelector("#reset-button");
+
 const minutes = document.querySelector(".minutes");
 const seconds = document.querySelector(".seconds");
 
@@ -12,7 +12,7 @@ let interval = null;
 //event listener
 startButton.addEventListener("click", start);
 pauseButton.addEventListener("click", pause);
-resetButton.addEventListener("click", reset);
+//resetButton.addEventListener("click", reset);
 
 //update the timer
 function timer() {
@@ -51,9 +51,31 @@ function pause() {
 }
 
 function reset() {
-  pause();
-  counter = -1;
-  minutes.innerText = `00`;
-  seconds.innerText = `00`;
+  // pause();
+  // counter = -1;
+  // minutes.innerText = `00`;
+  // seconds.innerText = `00`;
   location.reload();
 }
+
+//dialog
+const resetButton = document.querySelector("#reset-button");
+dialog = document.querySelector("dialog");
+//const showButton = document.querySelector("dialog + button");
+const closeButton = document.querySelector("dialog button");
+const confirmResetButton = document.querySelector("#reset");
+
+// "Show the dialog" button opens the dialog modally
+resetButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+// "Close" button closes the dialog
+closeButton.addEventListener("click", () => {
+  dialog.close();
+});
+
+confirmResetButton.addEventListener("click", () => {
+  dialog.close();
+  reset();
+});

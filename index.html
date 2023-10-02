@@ -11,10 +11,10 @@
     <div class="container">
       <h1>Sudoku</h1>
       <div class="stopwatch">
-        <button class="undo-button small-button">
+        <button class="undo-button small-button" title="undo last step">
           <img src="back.svg" alt="back button" />
         </button>
-        <button class="hint-button small-button">
+        <button class="hint-button small-button" title="explain game">
           <img src="hint.svg" alt="hint button" />
         </button>
         <div id="time">
@@ -23,13 +23,26 @@
           <h2 class="seconds">00</h2>
           <p>sec</p>
         </div>
-        <button id="play-button" class="active small-button">
+        <button
+          id="play-button"
+          class="active small-button"
+          title="start stopwatch"
+        >
           <img src="play.svg" alt="play button" />
         </button>
         <button id="pause-button" class="hide small-button">
           <img src="pause.svg" alt="pause button" />
         </button>
-        <button id="reset-button" class="small-button">
+        <dialog>
+          <div class="dialogStyle">
+            <p>Do you really wanna start fresh?</p>
+            <div>
+              <button class="goBack" autofocus>No, go back</button>
+              <button id="reset">Start fresh</button>
+            </div>
+          </div>
+        </dialog>
+        <button id="reset-button" class="small-button" title="reset all">
           <img src="startfresh.svg" alt="reset button" />
         </button>
       </div>
